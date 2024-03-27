@@ -1,0 +1,94 @@
+﻿@model MasterDetails_Crud.Models.Applicant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Applicant</h4>
+    <hr />
+
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Picture)
+    </dt>
+
+    <dd>
+        <div style="height:120px; width:120px">
+            <img src="@Url.Content(Model.PicPath)" alt="@Model.Name" class="img-thumbnail" style="width: 200px" />
+        </div>
+    </dd>
+
+
+
+
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalExprience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalExprience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PicPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+
+    </dl>
+</div>
+
+
+<div class="col-md-10">
+    <table class="table">
+        <tr>
+            <th>Company Name</th>
+            <th>Designation</th>
+            <th>Year of Exprience</th>
+        </tr>
+        @foreach (var item in Model.ApplicantExes)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.CompanyName)</td>
+                <td>@Html.DisplayFor(m => item.Designation)</td>
+                <td>@Html.DisplayFor(m => item.YearOfExperience)</td>
+            </tr>
+
+        }
+    </table>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
